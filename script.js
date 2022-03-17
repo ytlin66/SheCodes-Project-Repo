@@ -29,7 +29,6 @@ function changeCity(event) {
   axios.get(apiUrl).then(changeDescription);
   axios.get(apiUrl).then(changeWind);
   axios.get(apiUrl).then(changeHumidity);
-  axios.get(apiUrl).then(changePrecipitation);
 }
 
 function changeTemp(response) {
@@ -53,11 +52,7 @@ function changeHumidity(response) {
   let selectHumid = document.querySelector("#humidity");
   selectHumid.innerHTML = `Humidity: ${newHumid}%`;
 }
-function changePrecipitation(response) {
-  let newPreci = response.data.main.precipitation;
-  let selectPreci = document.querySelector("#precipitation");
-  selectPreci.innerHTML = `Precipitation: ${newPreci}%`;
-}
+
 function getLatAndLon(position) {
   console.log(position.coords.latitude);
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
@@ -70,7 +65,6 @@ function getLatAndLon(position) {
   axios.get(apiUrl).then(changeDescription);
   axios.get(apiUrl).then(changeWind);
   axios.get(apiUrl).then(changeHumidity);
-  axios.get(apiUrl).then(changePrecipitation);
 }
 function getCurrentLocation() {
   navigator.geolocation.getCurrentPosition(getLatAndLon);
