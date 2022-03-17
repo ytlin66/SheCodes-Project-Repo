@@ -53,3 +53,11 @@ li {
 .search-form {
   margin-bottom: 20px;
 }
+.w-100 {
+  width: 100% !important;
+}
+.btn-success {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}

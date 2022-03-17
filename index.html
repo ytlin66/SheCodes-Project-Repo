@@ -9,6 +9,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -33,12 +34,20 @@
                 class="btn btn-primary form-control shadow-sm"
               />
             </div>
+            <div class="col-3">
+              <button
+                class="btn btn-success w-100"
+                id="current-location-button"
+              >
+                Current
+              </button>
+            </div>
           </div>
         </form>
-        <h1 id="city">Sydnew NSW, Australia</h1>
+        <h1 id="city">Sydney, Australia</h1>
         <ul>
-          <li id="date">Sunday 9:53 am</li>
-          <li>Partly Cloudy</li>
+          <li id="date">Sunnnnnday 0:00 am</li>
+          <li id="description">Super Sunny Day</li>
         </ul>
         <div class="row">
           <div class="col-6">
@@ -49,20 +58,18 @@
                 class="weather-icon float-left"
               />
               <div class="float-left">
-                <span class="temperature" id="temperature">19</span>
+                <span class="temperature" id="temperature">00</span>
                 <span class="units">
                   <a href="#" id="celsius-link">℃</a>
-                  |
-                  <a href="#" id="fahrenheit-link">℉</a>
                 </span>
               </div>
             </div>
           </div>
           <div class="col-6">
             <ul>
-              <li>Precipitation:0%</li>
-              <li>Humidity:77%</li>
-              <li>Wind: 8 km/h</li>
+              <li id="precipitation">Precipitation:0%</li>
+              <li id="humidity">Humidity:0%</li>
+              <li id="wind">Wind: 0 km/h</li>
             </ul>
           </div>
         </div>
