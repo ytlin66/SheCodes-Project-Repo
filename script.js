@@ -61,6 +61,8 @@ function getLatAndLon(position) {
   let lon = position.coords.longitude;
   let units = "metric";
   let apiUrl = `${apiEndpoint}?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+  let currentCity = document.querySelector("#city");
+  currentCity.innerHTML = "Current City";
   axios.get(apiUrl).then(changeTemp);
   axios.get(apiUrl).then(changeDescription);
   axios.get(apiUrl).then(changeWind);
