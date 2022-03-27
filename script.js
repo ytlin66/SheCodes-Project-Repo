@@ -16,7 +16,7 @@ function changeCity(event) {
 function changeTempDescripWindHumid(response) {
   console.log(response);
   let selectDate = document.querySelector("#date");
-  selectDate.innerHTML = formatDate(response.data.dt*1000);
+  selectDate.innerHTML = formatDate(response.data.dt * 1000);
   let displayTemp = document.querySelector("#temperature");
   displayTemp.innerHTML = Math.round(response.data.main.temp);
   let selectDescription = document.querySelector("#description");
@@ -50,21 +50,21 @@ function getLatAndLon(position) {
 }
 
 //Show Today's day of week and current time
-function formatDate{
+function formatDate() {
   let today = new Date();
-let daysOfWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = daysOfWeek[today.getDay()];
-let time = today.getHours() + ":" + today.getMinutes();
-let todayDate = document.querySelector("#date");
-todayDate.innerHTML = `${day} ${time}`;
+  let daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = daysOfWeek[today.getDay()];
+  let time = today.getHours() + ":" + today.getMinutes();
+  let todayDate = document.querySelector("#date");
+  todayDate.innerHTML = `${day} ${time}`;
 }
 
 //This is for after entering the city, and hit Search.
