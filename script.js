@@ -15,14 +15,21 @@ function changeCity(event) {
 
 function changeTempDescripWindHumid(response) {
   console.log(response);
+  let selectDate = document.querySelector("#date");
+  selectDate.innerHTML = formatDate(response.data.dt*1000);
   let displayTemp = document.querySelector("#temperature");
   displayTemp.innerHTML = Math.round(response.data.main.temp);
   let selectDescription = document.querySelector("#description");
   selectDescription.innerHTML = response.data.weather[0].description;
   let selectWind = document.querySelector("#wind");
-  selectWind.innerHTML = `Wind: ${response.data.wind.speed} km/h`;
+  selectWind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
   let selectHumid = document.querySelector("#humidity");
   selectHumid.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  let selectIcon = document.querySelector("#icon");
+  selectIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 //geting the current location
@@ -43,7 +50,8 @@ function getLatAndLon(position) {
 }
 
 //Show Today's day of week and current time
-let today = new Date();
+function formatDate{
+  let today = new Date();
 let daysOfWeek = [
   "Sunday",
   "Monday",
@@ -57,6 +65,8 @@ let day = daysOfWeek[today.getDay()];
 let time = today.getHours() + ":" + today.getMinutes();
 let todayDate = document.querySelector("#date");
 todayDate.innerHTML = `${day} ${time}`;
+}
+
 //This is for after entering the city, and hit Search.
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", changeCity);
