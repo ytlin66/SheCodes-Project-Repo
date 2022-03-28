@@ -17,6 +17,8 @@ function changeTempDescripWindHumid(response) {
   console.log(response);
   let displayTemp = document.querySelector("#temperature");
   displayTemp.innerHTML = Math.round(response.data.main.temp);
+  //assign value to the global variable called celciusGlobal.
+  celsiusGlobal = Math.round(response.data.main.temp);
   let selectDescription = document.querySelector("#description");
   selectDescription.innerHTML = response.data.weather[0].description;
   let selectWind = document.querySelector("#wind");
@@ -65,12 +67,31 @@ function formatDate() {
   let todayDate = document.querySelector("#date");
   todayDate.innerHTML = `${day} ${time}`;
 }
-
+//this function is called when click on the Fahrenheit link, the temperature will show in fahrenheit.
+function clickShowFahrenheitTemp(event) {
+  event.preventDefault;
+  let tempElement = document.querySelector("#temperature");
+  tempElement.innerHTML = Math.round((celsiusGlobal * 9) / 5 + 32) + "℉";
+}
+//this function is called when click on the Celcius link.
+function clickShowCelsiusTemp(event) {
+  event.preventDefault;
+  let tempElement = document.querySelector("#temperature");
+  tempElement.innerHTML = celsiusGlobal + "℃";
+}
 //This is for after entering the city, and hit Search.
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", changeCity);
-//this is for the "Current" button
+//this is for the "Current" button.
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentLocation);
-
+//this calls the function that converts  Celcius to Fahrenheit.
+let selectFahrenheit = document.querySelector("#fahrenheit-link");
+selectFahrenheit.addEventListener("click", clickShowFahrenheitTemp);
+//this calls the function that shows Celcius.
+let selectCelcius = document.querySelector("#celsius-link");
+selectCelcius.addEventListener("click", clickShowCelsiusTemp);
+//creating a global variable for celcius.
+let celsiusGlobal = null;
+//this calls the function and show Date info.
 formatDate();
