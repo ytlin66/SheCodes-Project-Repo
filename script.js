@@ -15,8 +15,6 @@ function changeCity(event) {
 
 function changeTempDescripWindHumid(response) {
   console.log(response);
-  let selectDate = document.querySelector("#date");
-  selectDate.innerHTML = formatDate(response.data.dt * 1000);
   let displayTemp = document.querySelector("#temperature");
   displayTemp.innerHTML = Math.round(response.data.main.temp);
   let selectDescription = document.querySelector("#description");
@@ -30,6 +28,7 @@ function changeTempDescripWindHumid(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  selectIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 //geting the current location
@@ -73,3 +72,5 @@ form.addEventListener("submit", changeCity);
 //this is for the "Current" button
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentLocation);
+
+formatDate();

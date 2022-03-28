@@ -1,10 +1,15 @@
 body {
   font-family: arial, sans-serif;
 }
-
 h1 {
   color: #7c7c7c;
-  font-size: 24px;
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
+}
+h2 {
+  color: #7c7c7c;
+  font-size: 20px;
   font-weight: 100;
   line-height: 28px;
   margin: 0;
@@ -43,6 +48,7 @@ li {
   font-size: 64px;
   font-weight: 400;
   line-height: 1;
+  margin: 30px 30px;
 }
 
 .units {
@@ -53,15 +59,21 @@ li {
 .search-form {
   margin-bottom: 20px;
 }
-.w-100 {
-  width: 100% !important;
-}
+
 .btn-success {
   color: #fff;
-  background-color: #28a745;
-  border-color: #28a745;
+  background-color: #65a373;
+  border-color: #65a373;
 }
 .footer {
+  text-align: center;
+  margin: 0 auto;
+}
+#city {
+  text-transform: capitalize;
+}
+#current-location-button {
+  display: block;
   text-align: center;
   margin: 0 auto;
 }

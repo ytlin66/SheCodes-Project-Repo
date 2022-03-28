@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <h1>Check Current Weather</h1>
     <div class="container">
       <div class="weather-app">
         <form class="search-form" id="search-form">
@@ -20,7 +21,7 @@
             <div class="col-9">
               <input
                 type="search"
-                placeholder="Type a city"
+                placeholder="Type a city name here"
                 autofocus="on"
                 autocomplete="off"
                 id="city-input"
@@ -34,43 +35,45 @@
                 class="btn btn-primary form-control shadow-sm"
               />
             </div>
-            <div class="col-3">
-              <button
-                class="btn btn-success w-100"
-                id="current-location-button"
-              >
-                Current
+            <br />
+          </div>
+        </form>
+        <div class="container">
+          <div class="row">
+            <div class="col-16">
+              <button class="btn btn-success" id="current-location-button">
+                Check Current City
               </button>
             </div>
           </div>
-        </form>
-        <h1 id="city">City Name</h1>
-        <ul>
-          <li id="date">Sunnnnnday 0:00 am</li>
-          <li id="description">Super Sunny Day</li>
-        </ul>
-        <div class="row">
-          <div class="col-6">
-            <div class="clearfix">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                alt="Cloudy"
-                id="icon"
-                class="weather-icon float-left"
-              />
-              <div class="float-left">
-                <span class="temperature" id="temperature">00</span>
-                <span class="units">
-                  <a href="#" id="celsius-link">℃</a>
-                </span>
+        </div>
+        <br />
+        <br />
+        <div class="container" class="contaner3">
+          <div class="row">
+            <div class="col">
+              <h2 id="city">City Name</h2>
+              <ul>
+                <li id="date">Sday of week 0:00 am</li>
+                <li id="description">Description</li>
+                <li id="humidity">Humidity:0%</li>
+                <li id="wind">Wind: 0 km/h</li>
+              </ul>
+            </div>
+            <div class="col">
+              <span class="temperature" id="temperature">00</span>
+              <span class="units"> ℃ </span>
+            </div>
+            <div class="col">
+              <div>
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="Cloudy"
+                  id="icon"
+                  class="weather-icon float-left"
+                />
               </div>
             </div>
-          </div>
-          <div class="col-6">
-            <ul>
-              <li id="humidity">Humidity:0%</li>
-              <li id="wind">Wind: 0 km/h</li>
-            </ul>
           </div>
         </div>
       </div>
