@@ -68,17 +68,17 @@ function formatDate() {
   todayDate.innerHTML = `${day} ${time}`;
 }
 //this function is called when click on the Fahrenheit link, the temperature will show in fahrenheit.
-function clickShowFahrenheitTemp(event) {
-  event.preventDefault;
-  let tempElement = document.querySelector("#temperature");
-  tempElement.innerHTML = Math.round((celsiusGlobal * 9) / 5 + 32) + "℉";
-}
+//function clickShowFahrenheitTemp(event) {
+// event.preventDefault;
+// let tempElement = document.querySelector("#temperature");
+// tempElement.innerHTML = Math.round((celsiusGlobal * 9) / 5 + 32) + "℉";
+//}
 //this function is called when click on the Celcius link.
-function clickShowCelsiusTemp(event) {
-  event.preventDefault;
-  let tempElement = document.querySelector("#temperature");
-  tempElement.innerHTML = celsiusGlobal + "℃";
-}
+//function clickShowCelsiusTemp(event) {
+// event.preventDefault;
+// let tempElement = document.querySelector("#temperature");
+// tempElement.innerHTML = celsiusGlobal + "℃";
+//}
 //This is for after entering the city, and hit Search.
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", changeCity);
@@ -86,11 +86,11 @@ form.addEventListener("submit", changeCity);
 let currentButton = document.querySelector("#current-location-button");
 currentButton.addEventListener("click", getCurrentLocation);
 //this calls the function that converts  Celcius to Fahrenheit.
-let selectFahrenheit = document.querySelector("#fahrenheit-link");
-selectFahrenheit.addEventListener("click", clickShowFahrenheitTemp);
+//let selectFahrenheit = document.querySelector("#fahrenheit-link");
+//selectFahrenheit.addEventListener("click", clickShowFahrenheitTemp);
 //this calls the function that shows Celcius.
-let selectCelcius = document.querySelector("#celsius-link");
-selectCelcius.addEventListener("click", clickShowCelsiusTemp);
+//let selectCelcius = document.querySelector("#celsius-link");
+//selectCelcius.addEventListener("click", clickShowCelsiusTemp);
 //creating a global variable for celcius.
 let celsiusGlobal = null;
 //this calls the function and show Date info.

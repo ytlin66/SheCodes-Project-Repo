@@ -46,14 +46,16 @@ li {
 .temperature {
   color: rgb(33, 33, 33);
   font-size: 50px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1;
-  margin: 30px 30px;
+  margin: 10px 30px;
 }
 
 .units {
+  font-size: 20px;
   position: relative;
-  top: -34px;
+  top: -30px;
+  left: -35px;
 }
 
 .search-form {
@@ -62,8 +64,8 @@ li {
 
 .btn-success {
   color: #fff;
-  background-color: #65a373;
-  border-color: #65a373;
+  background-color: #72a57e;
+  border-color: #72a57e;
 }
 .footer {
   text-align: center;
