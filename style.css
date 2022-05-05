@@ -4,7 +4,7 @@ body {
 h1 {
   color: #7c7c7c;
   text-align: center;
-  padding: 10px;
+  padding: 20px 10px;
   font-size: 30px;
 }
 h2 {
@@ -35,6 +35,7 @@ li {
   margin: 20px auto;
   border-radius: 10px;
   max-width: 600px;
+  box-shadow: 10px 5px rgba(85, 138, 218, 0.5);
 }
 
 #icon {
@@ -44,7 +45,7 @@ li {
 }
 
 .temperature {
-  color: rgb(33, 33, 33);
+  color: rgb(33, 33, 33, 0.8);
   font-size: 60px;
   font-weight: 500;
   line-height: 1;
@@ -64,8 +65,12 @@ li {
 
 .btn-success {
   color: #fff;
-  background-color: #72a57e;
-  border-color: #72a57e;
+  background-color: #558ada;
+  border-color: #558ada;
+}
+.btn-success:hover {
+  background-color: #0b5ed7;
+  border-color: #0b5ed7;
 }
 .footer {
   text-align: center;
@@ -73,9 +78,28 @@ li {
 }
 #city {
   text-transform: capitalize;
+  font-size: 20px;
 }
 #current-location-button {
   display: block;
   text-align: center;
   margin: 0 auto;
+}
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+}
+.weather-forecast-temps {
+  font-size: 10px;
+}
+.container {
+  margin-top: 10px;
+}
+.forecast-temp-min {
+  opacity: 0.6;
 }

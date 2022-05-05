@@ -10,10 +10,10 @@ function changeCity(event) {
   let city = enteredCity.value;
   let units = "metric";
   let apiUrl = `${apiEndpoint}?q=${city}&units=${units}&appid=${apiKey}`;
-  axios.get(apiUrl).then(changeTempDescripWindHumid);
+  axios.get(apiUrl).then(updateAllWeatherInfo);
 }
 
-function changeTempDescripWindHumid(response) {
+function updateAllWeatherInfo(response) {
   console.log(response);
   let displayTemp = document.querySelector("#temperature");
   displayTemp.innerHTML = Math.round(response.data.main.temp);
@@ -31,6 +31,8 @@ function changeTempDescripWindHumid(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   selectIcon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecastCoordinates(response.data.coord);
 }
 
 //geting the current location
@@ -47,7 +49,65 @@ function getLatAndLon(position) {
   let apiUrl = `${apiEndpoint}?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
   let currentCity = document.querySelector("#city");
   currentCity.innerHTML = "Current City";
-  axios.get(apiUrl).then(changeTempDescripWindHumid);
+  axios.get(apiUrl).then(updateAllWeatherInfo);
+}
+
+//for all the forecast, we need to convert the raw data into readable day of week.
+function convertForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+//This is to display forecast for the next 5 days , looping through the array and reuse the same code.
+function displayForecast(response) {
+  let dailyForecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  dailyForecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+          <div class="col-2">
+              <div class="weather-forecast-date">${convertForecastDay(
+                forecastDay.dt
+              )}</div>
+
+              <img
+                src="https://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
+                alt="weather icon"
+                width="36"
+              />
+              <div class="weather-forecast-temps">
+                <span class="forecast-temp-max">${Math.round(
+                  forecastDay.temp.max
+                )}℃ </span>
+                <span class="forecast-temp-min"> ${Math.round(
+                  forecastDay.temp.min
+                )}℃</span>
+              </div>
+          </div>
+         
+  `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+//after you type in a city and press Search, besides weather info, we can also get the city geo location info.
+//This will be used to get info for the next 5 days weather forecast.
+function getForecastCoordinates(coordinates) {
+  console.log(coordinates);
+  let apiKey = "168a6f3c90ccb5d34accdfb30077f21f";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 //Show Today's day of week and current time

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Check Current Weather</h1>
+    <h1>Weather Forecast</h1>
     <div class="container">
       <div class="weather-app">
         <form class="search-form" id="search-form">
@@ -38,17 +38,7 @@
             <br />
           </div>
         </form>
-        <div class="container">
-          <div class="row">
-            <div class="col-16">
-              <button class="btn btn-success" id="current-location-button">
-                Check Current City
-              </button>
-            </div>
-          </div>
-        </div>
-        <br />
-        <br />
+
         <div class="container">
           <div class="row">
             <div class="col">
@@ -69,7 +59,36 @@
                 src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
                 alt="weather icon"
                 id="icon"
+                width="50"
               />
+            </div>
+          </div>
+        </div>
+        <div class="weather-forecast" id="forecast">
+          <div class="row">
+            <div class="col-2">
+              <div class="weather-forecast-date">Thur</div>
+
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                alt="weather icon"
+                width="36"
+              />
+              <div class="weather-forecast-temps">
+                <span class="forecast-temp-max">18C</span>
+                <span class="forecast-temp-min"> 12C </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </br>
+      </br>
+        <div class="container">
+          <div class="row">
+            <div class="col-16">
+              <button class="btn btn-success" id="current-location-button">
+                Check Current City
+              </button>
             </div>
           </div>
         </div>
@@ -83,7 +102,7 @@
           target="_blank"
           >Open-source code</a
         >
-        by Lily Lin
+        by Lily Lin 2022
       </div>
     </footer>
     <script src="script.js"></script>
