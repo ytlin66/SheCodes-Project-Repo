@@ -42,6 +42,7 @@ li {
   height: 64px;
   width: 64px;
   margin: 0px 70px 20px 10px;
+  margin-top: 40px;
 }
 
 .temperature {
@@ -50,13 +51,15 @@ li {
   font-weight: 500;
   line-height: 1;
   margin: 30px 10px 10px 40px;
+  display: block;
+  margin-top: 40px;
 }
 
 .units {
   font-size: 20px;
   position: relative;
-  top: -30px;
-  left: -8px;
+  top: -72px;
+  left: 114px;
 }
 
 .search-form {
